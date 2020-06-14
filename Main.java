@@ -40,20 +40,20 @@ public class Main {
 		System.out.println("One number is correct and is at the wrong place: ");
 		createNode(sc.next(), 5);
 
-		ArrayList<Integer> filteredGroup = filterGroup();
+		ArrayList<Integer> filteredGroups = getFilteredGroups();
 
-		HashMap<Integer, Integer> code = new HashMap<Integer, Integer>();
+		HashMap<Integer, Integer> lockCodes = new HashMap<Integer, Integer>();
 
-		for (int groupNo : filteredGroup) {
-			addConfirmedNumbers(groupNo, code);
+		for (int groupNo : filteredGroups) {
+			addConfirmedNumbers(groupNo, lockCodes);
 		}
 
 		for (Node node : nodes.values()) {
-			addOtherNumbers(node, code);
+			addOtherNumbers(node, lockCodes);
 		}
 		System.out.println();
 		System.out.print("The Lock code is:");
-		System.out.println(" " + code.get(1) + code.get(2) + code.get(3));
+		System.out.println(" " + lockCodes.get(1) + lockCodes.get(2) + lockCodes.get(3));
 	}
 
 	private static void addConfirmedNumbers(int groupNo, HashMap<Integer, Integer> code) {
@@ -102,7 +102,7 @@ public class Main {
 		return positions;
 	}
 
-	private static ArrayList<Integer> filterGroup() {
+	private static ArrayList<Integer> getFilteredGroups() {
 		ArrayList<Integer> confirmed = new ArrayList<>();
 		for (int groupNo = 0; groupNo < 5; groupNo++) {
 			int nElemenatedElements = 0;

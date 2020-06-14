@@ -95,12 +95,10 @@ public class Main {
 
 	private static ArrayList<Integer> getAllowedPositions(HashSet<Integer> groups) {
 		ArrayList<Integer> positions = new ArrayList<Integer>();
-		if (!groups.contains(1))
-			positions.add(1);
-		if (!groups.contains(2))
-			positions.add(2);
-		if (!groups.contains(3))
-			positions.add(3);
+		for (int i = 1; i <= 3; i++) {
+			if (!groups.contains(i))
+				positions.add(i);
+		}
 		return positions;
 	}
 
